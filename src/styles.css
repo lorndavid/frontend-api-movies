@@ -12,8 +12,9 @@
     min-width: 320px;
     min-height: 100vh;
     background:
-      linear-gradient(180deg, rgba(250, 250, 250, 0.96), rgba(244, 244, 245, 1)),
-      #f4f4f5;
+      radial-gradient(circle at top left, rgba(16, 185, 129, 0.14), transparent 34rem),
+      radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 30rem),
+      linear-gradient(180deg, #fafafa 0%, #f4f4f5 52%, #eef2f7 100%);
     color: #18181b;
     font-family: Inter, ui-sans-serif, system-ui, Segoe UI, sans-serif;
   }
@@ -27,12 +28,24 @@
 }
 
 @layer components {
+  .app-shell {
+    @apply mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-5 px-4 py-4 sm:px-6 sm:py-6 lg:px-8;
+  }
+
   .panel {
-    @apply rounded-lg border border-zinc-200 bg-white shadow-panel;
+    @apply overflow-hidden rounded-lg border border-white/70 bg-white/90 shadow-panel backdrop-blur;
   }
 
   .panel-header {
-    @apply flex min-h-16 items-center justify-between gap-3 border-b border-zinc-100 px-5 py-4;
+    @apply flex min-h-16 flex-col items-start justify-between gap-3 border-b border-zinc-100 px-4 py-4 sm:flex-row sm:items-center sm:px-5;
+  }
+
+  .section-body {
+    @apply grid gap-5 p-4 sm:p-5;
+  }
+
+  .icon-tile {
+    @apply flex size-10 shrink-0 items-center justify-center rounded-md;
   }
 
   .field {
@@ -44,11 +57,11 @@
   }
 
   .input {
-    @apply h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-900 focus:ring-4 focus:ring-zinc-200;
+    @apply h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-4 focus:ring-zinc-200;
   }
 
   .textarea {
-    @apply min-h-24 w-full resize-y rounded-md border border-zinc-300 bg-white px-3 py-3 text-sm text-zinc-950 outline-none transition focus:border-zinc-900 focus:ring-4 focus:ring-zinc-200;
+    @apply min-h-24 w-full resize-y rounded-md border border-zinc-300 bg-white px-3 py-3 text-sm text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-900 focus:ring-4 focus:ring-zinc-200;
   }
 
   .btn {
@@ -56,7 +69,7 @@
   }
 
   .btn-primary {
-    @apply bg-zinc-950 text-white hover:bg-zinc-800;
+    @apply bg-zinc-950 text-white shadow-sm hover:bg-zinc-800;
   }
 
   .btn-soft {
@@ -68,6 +81,18 @@
   }
 
   .badge {
-    @apply inline-flex h-8 items-center gap-2 rounded-md border px-3 text-xs font-semibold;
+    @apply inline-flex min-h-8 items-center gap-2 rounded-md border px-3 py-1 text-xs font-semibold;
+  }
+
+  .status-dot {
+    @apply size-2 rounded-full;
+  }
+
+  .method-button {
+    @apply h-10 rounded-md border text-sm font-semibold transition;
+  }
+
+  .code-block {
+    @apply max-h-[420px] overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-xs leading-6 text-zinc-800 sm:max-h-[620px] sm:p-5 sm:text-sm;
   }
 }
