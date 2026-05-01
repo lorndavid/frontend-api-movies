@@ -95,4 +95,20 @@
   .code-block {
     @apply max-h-[420px] overflow-auto whitespace-pre-wrap break-words p-4 font-mono text-xs leading-6 text-zinc-800 sm:max-h-[620px] sm:p-5 sm:text-sm;
   }
+
+  .data-table {
+    @apply min-w-full table-fixed border-collapse text-left text-sm;
+  }
+
+  .data-table th {
+    @apply border-b border-zinc-100 bg-zinc-50 px-4 py-3 text-xs font-semibold uppercase text-zinc-500;
+  }
+
+  .data-table td {
+    @apply max-w-48 truncate border-b border-zinc-100 px-4 py-3 text-zinc-800;
+  }
+
+  .data-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
 }
