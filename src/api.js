@@ -1,6 +1,5 @@
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL ||
-  (import.meta.env.DEV ? "/api" : "https://backend-api-movies-7r66.onrender.com");
+  import.meta.env.VITE_API_BASE_URL || "/api";
 
 export async function apiRequest(path, options = {}) {
   const headers = {
